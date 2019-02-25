@@ -1,25 +1,28 @@
 import React, { Component } from 'react';
-import logo from './logo.svg';
-import './App.css';
+import { Route, Switch, Redirect } from "react-router-dom";
+import CardContainer from "./containers/CardContainer";
+import DesignEditor from "./containers/DesignEditor";
+import UserDesigns from "./components/UserDesigns";
+import UserInvites from "./components/UserInvites";
+import UserAccount from "./containers/UserAccount";
+import SignUpInContainer from "./containers/SignUpInContainer";
+import NavBar from "./containers/NavBar";
+import './css/App.css';
 
 class App extends Component {
   render() {
     return (
       <div className="App">
-        <header className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <p>
-            Edit <code>src/App.js</code> and save to reload.
-          </p>
-          <a
-            className="App-link"
-            href="https://reactjs.org"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Learn React
-          </a>
-        </header>
+        <NavBar />
+
+        <Switch>
+          <Route exact path="/" component={CardContainer} />
+          <Route path="/designeditor" component={DesignEditor}/>
+          <Route path="/mydesigns" component={UserDesigns}/>
+          <Route path="/myinvites" component={UserInvites}/>
+          <Route path="/account" component={UserAccount}/>
+          <Route path="/loginorsignup" component={SignUpInContainer} />
+        </Switch>
       </div>
     );
   }
