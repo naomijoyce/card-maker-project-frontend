@@ -1,8 +1,10 @@
 import React, { Component } from 'react';
+import { connect } from "react-redux";
 
 class LogInForm extends Component {
   state={
-
+    email: "",
+    currentPassword: ""
   }
 
   render() {
@@ -17,7 +19,7 @@ class LogInForm extends Component {
 
           <input 
             type="password"
-            name="current-password" 
+            name="currentPassword" 
             placeholder="Password"/>
           <br/>
 
