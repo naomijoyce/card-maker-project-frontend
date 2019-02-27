@@ -11,6 +11,14 @@ const reducer = (state = initialState, action) => {
         currentUser: action.payload,
         loggedIn: true
       }
+    
+    case "CREATE_USER":
+      return{
+        ...state,
+        currentUser: action.payload,
+        loggedIn: true
+      }
+
     default:
       return state
   }

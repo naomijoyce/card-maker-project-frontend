@@ -1,4 +1,5 @@
 import { loginUser } from "../actions/userAction";
+import { createUser } from "../actions/userAction";
 
 export const loggingInUser = loginCredentials => dispatch => {
   return fetch("http://localhost:3000/api/v1/login", {
@@ -15,9 +16,27 @@ export const loggingInUser = loginCredentials => dispatch => {
     }else{
       return response.json()
     }
+  })
+  .then(user => {  
+    localStorage.setItem("token", user.jwt)
+    dispatch(loginUser(user))
+  })
+}
 
+export const creatingNewUser = userInfo => dispatch => {
+  return fetch("http://localhost:3000/api/v1/users", {
+    method: "POST",
+    headers: {
+      'Content-Type': 'application/JSON',
+      'Accept': 'application/JSON'
+    },
+    body: JSON.stringify({user: userInfo})
   })
-  .then(data => {  
-    dispatch(loginUser(data))
+  .then(response => response.json())
+  .then(user => {
+    console.log(user);
+    localStorage.setItem("token", user.jwt)
+    dispatch(createUser(user))
   })
+
 }

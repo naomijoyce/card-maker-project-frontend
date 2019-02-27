@@ -17,7 +17,6 @@ class LogInForm extends Component {
 
   submitHandler = (event) => {
     event.preventDefault()
-    console.log(event);
     this.props.loggingInUser(this.state)
   }
 
