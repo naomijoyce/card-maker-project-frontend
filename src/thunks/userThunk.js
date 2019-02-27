@@ -1,5 +1,4 @@
-import { loginUser } from "../actions/userAction";
-import { createUser } from "../actions/userAction";
+import { loginUser, createUser } from "../actions/userAction";
 
 export const loggingInUser = loginCredentials => dispatch => {
   return fetch("http://localhost:3000/api/v1/login", {
