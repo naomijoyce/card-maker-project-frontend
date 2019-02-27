@@ -1,10 +1,11 @@
 import React, { Component } from 'react';
 import { connect } from "react-redux";
+import { loggingInUser } from "../thunks/userThunk";
 
 class LogInForm extends Component {
   state={
     email: "",
-    currentPassword: ""
+    password: ""
   }
 
   changeHandler = (event) => {
@@ -15,7 +16,9 @@ class LogInForm extends Component {
   }
 
   submitHandler = (event) => {
-
+    event.preventDefault()
+    console.log(event);
+    this.props.loggingInUser(this.state)
   }
 
 
@@ -34,7 +37,7 @@ class LogInForm extends Component {
 
           <input 
             type="password"
-            name="currentPassword" 
+            name="password" 
             value={this.state.currentPassword}
             onChange={this.changeHandler}
             placeholder="Password"/>
@@ -47,4 +50,11 @@ class LogInForm extends Component {
   }
 }
 
-export default LogInForm;
+const mapDispatchToProps = (dispatch) =>{
+  return{
+    loggingInUser: (loginCredentials) => dispatch(loggingInUser(loginCredentials))
+  }
+ 
+}
+
+export default connect(null, mapDispatchToProps)(LogInForm);

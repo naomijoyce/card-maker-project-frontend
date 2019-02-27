@@ -5,15 +5,19 @@ export const loggingInUser = loginCredentials => dispatch => {
     method: 'POST', 
     headers: {
       'Content-Type': 'application/JSON',
-      'Accept': 'application/JSON',
-      'Authorization': localStorage.getItem("token")
+      'Accept': 'application/JSON'
     },
     body: JSON.stringify({user: loginCredentials})
   })
-  .then(response => response.json())
-  .then(data => {
-    console.log(data);
-    
+  .then(response => {
+    if(response.status === 401){
+      return response.json().then(error =>{throw error})
+    }else{
+      return response.json()
+    }
+
+  })
+  .then(data => {  
     dispatch(loginUser(data))
   })
 }
