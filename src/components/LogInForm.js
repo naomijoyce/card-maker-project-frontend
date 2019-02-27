@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from "react-redux";
 import { loggingInUser } from "../thunks/userThunk";
+import { withRouter } from "react-router-dom";
 
 class LogInForm extends Component {
   state={
@@ -18,11 +19,10 @@ class LogInForm extends Component {
   submitHandler = (event) => {
     event.preventDefault()
     this.props.loggingInUser(this.state)
+    this.props.history.push("/")
   }
 
-
-
-  render() {
+  render() {  
     return (
       <div className="login">
         <form className="login-form" onSubmit={this.submitHandler}>
@@ -56,4 +56,4 @@ const mapDispatchToProps = (dispatch) =>{
  
 }
 
-export default connect(null, mapDispatchToProps)(LogInForm);
+export default withRouter(connect(null, mapDispatchToProps)(LogInForm));

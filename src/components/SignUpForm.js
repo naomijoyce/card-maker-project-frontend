@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from "react-redux";
 import { creatingNewUser } from "../thunks/userThunk";
+import { withRouter } from "react-router-dom";
 
 class SignUpForm extends Component {
   state={
@@ -21,6 +22,7 @@ class SignUpForm extends Component {
     event.preventDefault()
     console.log(event);
     this.props.creatingNewUser(this.state)
+    this.props.history.push("/")
   }
 
   render() {
@@ -71,4 +73,4 @@ const mapDispatchToProps = (dispatch) => {
   }
 }
 
-export default connect(null, mapDispatchToProps)(SignUpForm);
+export default withRouter(connect(null, mapDispatchToProps)(SignUpForm));

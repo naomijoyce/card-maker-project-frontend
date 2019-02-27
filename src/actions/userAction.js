@@ -1,3 +1,10 @@
+export const createUser = newUser => {
+  return{
+    type: "CREATE_USER",
+    payload: newUser
+  }
+}
+
 export const loginUser = user => {
   return{
     type: "LOGIN_USER",
@@ -5,9 +12,11 @@ export const loginUser = user => {
   }
 }
 
-export const createUser = newUser => {
+export const logoutUser = user => {
   return{
-    type: "CREATE_USER",
-    payload: newUser
+    type: "LOGOUT_USER",
+    payload: user
   }
 }
+
+

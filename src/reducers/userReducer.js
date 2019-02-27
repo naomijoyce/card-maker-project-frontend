@@ -5,18 +5,26 @@ const initialState = {
 
 const reducer = (state = initialState, action) => {
   switch(action.type){
+
+    case "CREATE_USER":
+      return{
+        ...state,
+        currentUser: action.payload,
+        loggedIn: true
+      }
+
     case "LOGIN_USER":
       return {
         ...state, 
         currentUser: action.payload,
         loggedIn: true
       }
-    
-    case "CREATE_USER":
+
+    case "LOGOUT_USER":
+      localStorage.clear()
       return{
         ...state,
-        currentUser: action.payload,
-        loggedIn: true
+        loggedIn: false
       }
 
     default:
