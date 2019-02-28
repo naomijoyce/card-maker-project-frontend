@@ -1,8 +1,11 @@
 import React from 'react';
 import { Link } from "react-router-dom";
 import { connect } from "react-redux";
+import { logoutUser } from "../actions/userAction";
 
-const NavBar = ({loggedIn}) => {  
+const NavBar = ({loggedIn, logoutUser}) => { 
+  console.log(logoutUser);
+   
   return (
     <div className="nav-bar">
       <ul>
@@ -16,12 +19,15 @@ const NavBar = ({loggedIn}) => {
               <Link to="/mydesigns"><li>My Designs</li></Link> 
               <Link to="/myinvites"><li>My Invites</li></Link>
               <Link to="/account"><li>Account Settings</li></Link>
+              <Link 
+                to="/" 
+                onClick={() => logoutUser()}>
+                <li>Log Out</li>
+              </Link>
             </div>
           ):
           <Link to="/loginorsignup"><li>Log In/Sign Up</li></Link>
         }
-        
-
         
       </ul>
     </div>
@@ -34,4 +40,10 @@ const mapStateToProps = (state) => {
   }
 }
 
-export default connect(mapStateToProps)(NavBar);
+const mapDispatchToProps = (dispatch) => {
+  return{
+    logoutUser: () => dispatch(logoutUser())
+  }
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(NavBar);
