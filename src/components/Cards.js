@@ -9,14 +9,14 @@ class Cards extends Component {
   }
 
   render() {    
-    const { design } = this.props
+    const design = this.props.design || {}
     
     return (
       <div className="card-designs">
         <Link 
           key={design.id} 
           id={design.id} 
-          to={`/${design.id}`}
+          to={`/designs/${design.id}`}
           onClick={ (event) => this.clickHandler(event, design)}>
           
           <img src={design.image} alt="some random card design"/>

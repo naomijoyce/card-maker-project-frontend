@@ -12,20 +12,20 @@ import './css/App.css';
 
 class App extends Component {
 
-  render() {   
+  render() { 
+       
     return (
       <div className="App">
         <NavBar />
 
         <Switch>
-          <Route exact path="/" component={CardContainer}/>
-          <Route path="/:id" component={CardInfo}/>
+          <Route exact path="/" component={CardContainer}/>  
+          <Route path="/designs/:id" component={CardInfo}/>
           <Route path="/designeditor" component={DesignEditor}/>
           <Route path="/mydesigns" component={UserDesigns}/>
           <Route path="/myinvites" component={UserInvites}/>
           <Route path="/account" component={UserAccount}/>
           <Route path="/loginorsignup" component={SignUpInContainer} />
-          <Redirect from="*" to="/"/>
         </Switch>
       </div>
     );
