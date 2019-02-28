@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Route, Switch} from "react-router-dom";
+import { Route, Switch, Redirect } from "react-router-dom";
 import CardContainer from "./containers/CardContainer";
 import CardInfo from "./components/CardInfo";
 import DesignEditor from "./containers/DesignEditor";
@@ -25,6 +25,7 @@ class App extends Component {
           <Route path="/myinvites" component={UserInvites}/>
           <Route path="/account" component={UserAccount}/>
           <Route path="/loginorsignup" component={SignUpInContainer} />
+          <Redirect from="*" to="/"/>
         </Switch>
       </div>
     );

@@ -12,9 +12,13 @@ class CardInfo extends Component {
         <img src={selectedDesign.image} alt="some random card design here" />
         <h3>{selectedDesign.title}</h3>
         <p>
-          jigdjflkgajdl;
+          Type of Event: {Object.values(selectedDesign.event)} <br/>
+          <i>Design by: {Object.values(selectedDesign.user.first_name)} {Object.values(selectedDesign.user.last_name)} </i>
         </p>
-        <button onClick={this.props.history.goBack}>Back</button>
+
+        <button>Customize Card</button>
+
+        <button onClick={this.props.history.goBack}>Back to All Designs</button>
       </div>
     );
   }

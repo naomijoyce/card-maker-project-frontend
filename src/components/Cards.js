@@ -9,9 +9,8 @@ class Cards extends Component {
   }
 
   render() {    
-    console.log(this.props);
-    
     const { design } = this.props
+    
     return (
       <div className="card-designs">
         <Link 
