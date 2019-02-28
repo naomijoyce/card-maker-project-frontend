@@ -1,5 +1,6 @@
 const initialState = {
-  designs: []
+  designs: [],
+  selectedDesign: {}
 }
 
 const reducer = (state = initialState, action) => {
@@ -8,6 +9,12 @@ const reducer = (state = initialState, action) => {
       return{
         ...state, 
         designs: action.payload
+      }
+
+    case "SELECT_DESIGN":
+      return{
+        ...state,
+        selectedDesign: action.payload
       }
   
     default:

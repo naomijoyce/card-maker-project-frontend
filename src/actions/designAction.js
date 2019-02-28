@@ -4,3 +4,10 @@ export const loadDesigns = design => {
     payload: design
   }
 }
+
+export const selectDesign = design => {
+  return{
+    type: "SELECT_DESIGN",
+    payload: design
+  }
+}
