@@ -3,16 +3,14 @@ import { Link } from "react-router-dom";
 import { connect } from "react-redux";
 import { logoutUser } from "../actions/userAction";
 
-const NavBar = ({loggedIn, logoutUser}) => { 
-  console.log(logoutUser);
-   
+const NavBar = ({loggedIn, logoutUser}) => {    
   return (
     <div className="nav-bar">
       <ul>
         <Link to="/"><li>Home</li></Link>
 
         {
-          loggedIn ? 
+          loggedIn? 
           (
             <div>
               <Link to="/designeditor"><li>Create a Design</li></Link>
@@ -25,7 +23,7 @@ const NavBar = ({loggedIn, logoutUser}) => {
                 <li>Log Out</li>
               </Link>
             </div>
-          ):
+          ) :
           <Link to="/loginorsignup"><li>Log In/Sign Up</li></Link>
         }
         

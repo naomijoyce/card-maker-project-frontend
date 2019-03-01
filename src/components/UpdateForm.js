@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { connect } from "react-redux";
 
 class UpdateForm extends Component {
   render() {
@@ -10,4 +11,4 @@ class UpdateForm extends Component {
   }
 }
 
-export default UpdateForm;
+export default connect()(UpdateForm);
