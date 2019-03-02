@@ -26,6 +26,7 @@ class App extends Component {
           <Route path="/myinvites" component={UserInvites}/>
           <Route path="/account" component={UserAccount}/>
           <Route path="/loginorsignup" component={SignUpInContainer} />
+          <Redirect from="*" to="/"/>
         </Switch>
       </div>
     );

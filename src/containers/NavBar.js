@@ -10,7 +10,7 @@ const NavBar = ({loggedIn, logoutUser}) => {
         <Link to="/"><li>Home</li></Link>
 
         {
-          loggedIn? 
+          localStorage.getItem("token") !== null && loggedIn? 
           (
             <div>
               <Link to="/designeditor"><li>Create a Design</li></Link>
