@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import Konva from "konva";
-import { Stage, Layer } from "react-konva";
+import { Stage, Layer, Line } from "react-konva";
+import "../css/DesignEditor.css";
 
 class DesignEditor extends Component {
   render() {
@@ -9,7 +10,7 @@ class DesignEditor extends Component {
     return (
       <div>
         vector editorrrrr
-        <Stage>
+        <Stage className="editor">
           <Layer>
 
           </Layer>

@@ -13,7 +13,7 @@ import './css/App.css';
 class App extends Component {
 
   render() { 
-       
+    
     return (
       <div className="App">
         <NavBar />
@@ -21,11 +21,17 @@ class App extends Component {
         <Switch>
           <Route exact path="/" component={CardContainer}/>  
           <Route path="/designs/:id" component={CardInfo}/>
-          <Route path="/designeditor" component={DesignEditor}/>
-          <Route path="/mydesigns" component={UserDesigns}/>
-          <Route path="/myinvites" component={UserInvites}/>
-          <Route path="/account" component={UserAccount}/>
-          <Route path="/loginorsignup" component={SignUpInContainer} />
+          {
+            localStorage.getItem("token") !== null ? 
+            <React.Fragment>
+              <Route path="/designeditor" component={DesignEditor}/>
+              <Route path="/mydesigns" component={UserDesigns}/>
+              <Route path="/myinvites" component={UserInvites}/>
+              <Route path="/account" component={UserAccount}/>
+            </React.Fragment>
+            : 
+            <Route path="/loginorsignup" component={SignUpInContainer} />
+          }
           <Redirect from="*" to="/"/>
         </Switch>
       </div>

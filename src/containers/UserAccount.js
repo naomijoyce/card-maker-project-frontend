@@ -6,9 +6,6 @@ class UserAccount extends Component {
   
   render() {
     const currentUser = this.props.currentUser || {}
-    console.log(Object.values(currentUser.user));
-    console.log(currentUser);
-    
     
     return (
       <div>
