@@ -3,11 +3,27 @@ import { connect } from "react-redux";
 import DropdownDate from 'react-dropdown-date';
 
 class UpdateForm extends Component {
+
   state={
     first_name: "",
     last_name: "",
     email: "",
     birthday: ""
+  }
+
+  componentDidUpdate(prevState, prevProps) {
+    
+  }
+
+  componentDidMount(){
+
+    this.setState({
+      first_name: this.props.currentUser.first_name,
+      last_name: this.props.currentUser.last_name,
+      email: this.props.currentUser.email,
+      birthday: this.props.currentUser.birthday
+    })
+    
   }
 
   changeHandler = (event) => {
@@ -19,19 +35,31 @@ class UpdateForm extends Component {
 
   dateChangeHandler = (date) => {
     console.log(date);
-    this.setState({
-      birthday: date
-    })
+  
+  }
+
+  submitHandler = (event) => {
+    event.preventDefault()
   }
 
   render() {
-    console.log(this.props.currentUser);
+    const formatDate = (date) => {	// formats a JS date to 'yyyy-mm-dd'
+    var d = new Date(date),
+        month = '' + (d.getMonth() + 1),
+        day = '' + d.getDate(),
+        year = d.getFullYear();
+
+    if (month.length < 2) month = '0' + month;
+    if (day.length < 2) day = '0' + day;
+
+    return [year, month, day].join('-');
+}
     
     return (
       <div className="update-form-container">
         <h3>Account Settings</h3>
 
-        <form className="update-form">
+        <form className="update-form" onSubmit={this.submitHandler}>
           <label>First Name</label>
           <input 
             type="text" 
@@ -56,8 +84,8 @@ class UpdateForm extends Component {
           <label>Birthday</label>
           <DropdownDate 
             name="birthday"
-            value={this.state.birthday}
-            onDateChange={(date) => this.dateChangeHandler(date)}/>
+            selectedDate={this.state.birthday}
+            onDateChange={(date) => this.dateChangeHandler(formatDate(date))}/>
 
           <button>Save</button>
 
