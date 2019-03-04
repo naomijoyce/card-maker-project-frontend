@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from "react-redux";
 import DropdownDate from 'react-dropdown-date';
+import { updateUserInfo } from "../thunks/userThunk";
 
 class UpdateForm extends Component {
 
@@ -11,12 +12,7 @@ class UpdateForm extends Component {
     birthday: ""
   }
 
-  componentDidUpdate(prevState, prevProps) {
-    
-  }
-
   componentDidMount(){
-
     this.setState({
       first_name: this.props.currentUser.first_name,
       last_name: this.props.currentUser.last_name,
@@ -27,7 +23,6 @@ class UpdateForm extends Component {
   }
 
   changeHandler = (event) => {
-    console.log(event.target.value);
     this.setState({
       [event.target.name]: event.target.value
     })
@@ -35,11 +30,18 @@ class UpdateForm extends Component {
 
   dateChangeHandler = (date) => {
     console.log(date);
+    this.setState({
+      birthday: date
+    })
   
   }
 
   submitHandler = (event) => {
     event.preventDefault()
+
+    const token = localStorage.getItem("token")
+    
+    this.props.updateUserInfo(this.props.currentUser.id, this.state, token)
   }
 
   render() {
@@ -65,21 +67,21 @@ class UpdateForm extends Component {
             type="text" 
             name="first_name"
             value={this.state.first_name}
-            onChange={this.changeHandler}/>
+            onChange={this.changeHandler}/><br/>
 
           <label>Last Name</label>
           <input 
             type="text"
             name="last_name"
             value={this.state.last_name}
-            onChange={this.changeHandler}/>
+            onChange={this.changeHandler}/><br/>
 
           <label>Email</label>
           <input 
             type="text"
             name="email"
             value={this.state.email}
-            onChange={this.changeHandler}/>
+            onChange={this.changeHandler}/><br/>
 
           <label>Birthday</label>
           <DropdownDate 
@@ -103,7 +105,7 @@ const mapStateToProps = (state) => {
 
 const mapDispatchToProps = (dispatch) => {
   return{
-
+    updateUserInfo: (id, newUserInfo, token) => dispatch(updateUserInfo(id, newUserInfo, token))
   }
 }
 

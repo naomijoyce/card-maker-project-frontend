@@ -9,7 +9,7 @@ class UserAccount extends Component {
     
     return (
       <div>
-        <h2>Hello, {Object.values(currentUser.user)[1]}</h2>
+        <h2>Hello, {currentUser.first_name}</h2>
         <UpdateForm />
       </div>
     );
@@ -18,7 +18,7 @@ class UserAccount extends Component {
 
 const mapStateToProps = (state) =>{
   return{
-    currentUser: state.userInfo.currentUser
+    currentUser: state.userInfo.currentUser.user
   }
 }
 

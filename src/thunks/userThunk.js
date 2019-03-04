@@ -1,4 +1,4 @@
-import { loginUser, createUser } from "../actions/userAction";
+import { loginUser, createUser, updateUser } from "../actions/userAction";
 
 export const loggingInUser = loginCredentials => dispatch => {
   return fetch("http://localhost:3000/api/v1/login", {
@@ -36,6 +36,24 @@ export const creatingNewUser = userInfo => dispatch => {
     console.log(user);
     localStorage.setItem("token", user.jwt)
     dispatch(createUser(user))
+  })
+
+}
+
+export const updateUserInfo = (id, newUserInfo, token) => dispatch =>{
+  return fetch(`http://localhost:3000/api/v1/users/${id}`, {
+    method: "PATCH",
+    headers:{
+      'Content-Type': 'application/JSON',
+      'Accept': 'application/JSON',
+      Authorization: `Bearer ${token}`
+    },
+    body: JSON.stringify({user: newUserInfo})
+  })
+  .then(response => response.json())
+  .then(data => {
+    console.log(data); 
+    
   })
 
 }
