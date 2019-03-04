@@ -3,8 +3,7 @@ import { Route, Switch, Redirect } from "react-router-dom";
 import CardContainer from "./containers/CardContainer";
 import CardInfo from "./components/CardInfo";
 import DesignEditor from "./containers/DesignEditor";
-import UserDesigns from "./components/UserDesigns";
-import UserInvites from "./components/UserInvites";
+import DashboardContainer from "./containers/DashboardContainer";
 import UserAccount from "./containers/UserAccount";
 import SignUpInContainer from "./containers/SignUpInContainer";
 import NavBar from "./containers/NavBar";
@@ -25,8 +24,7 @@ class App extends Component {
             localStorage.getItem("token") !== null ? 
             <React.Fragment>
               <Route path="/designeditor" component={DesignEditor}/>
-              <Route path="/mydesigns" component={UserDesigns}/>
-              <Route path="/myinvites" component={UserInvites}/>
+              <Route path="/dashboard" component={DashboardContainer}/>
               <Route path="/account" component={UserAccount}/>
             </React.Fragment>
             : 

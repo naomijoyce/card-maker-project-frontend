@@ -1,9 +1,9 @@
 import React from 'react';
 
-const UserInvites = () => {
+const UserInvites = (props) => {
   return (
     <div>
-      all the invites!
+      all of your invites!
     </div>
   );
 };

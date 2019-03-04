@@ -14,8 +14,7 @@ const NavBar = ({loggedIn, logoutUser}) => {
           (
             <div>
               <Link to="/designeditor"><li>Create a Design</li></Link>
-              <Link to="/mydesigns"><li>My Designs</li></Link> 
-              <Link to="/myinvites"><li>My Invites</li></Link>
+              <Link to="/dashboard"><li>Dashboard</li></Link> 
               <Link to="/account"><li>Account Settings</li></Link>
               <Link 
                 to="/" 

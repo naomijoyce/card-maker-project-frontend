@@ -9,7 +9,7 @@ class UserAccount extends Component {
     
     return (
       <div>
-        <h2>Hello, {currentUser.first_name}</h2>
+        <h2>Hello, {currentUser.first_name}!</h2>
         <UpdateForm />
       </div>
     );

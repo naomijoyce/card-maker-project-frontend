@@ -23,7 +23,7 @@ class Cards extends Component {
 
         </Link>
 
-        <h3>{design.title}</h3>
+        <h4>{design.title}</h4>
 
       </div>
     );
