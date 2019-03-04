@@ -52,8 +52,8 @@ export const updateUserInfo = (id, newUserInfo, token) => dispatch =>{
   })
   .then(response => response.json())
   .then(data => {
-    console.log(data); 
-    
+    dispatch(updateUser(data))
+
   })
 
 }

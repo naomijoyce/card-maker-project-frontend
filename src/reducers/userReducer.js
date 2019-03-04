@@ -26,6 +26,13 @@ const reducer = (state = initialState, action) => {
         ...state,
         loggedIn: false
       }
+    
+    case "UPDATE_USER":
+      return{
+        ...state,
+        currentUser: action.payload,
+        loggedIn: true
+      }
 
     default:
       return state
