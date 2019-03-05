@@ -7,12 +7,16 @@ import { BrowserRouter } from "react-router-dom";
 import thunk from "redux-thunk";
 import { createStore, applyMiddleware, combineReducers, compose } from "redux";
 import { Provider } from "react-redux";
+
+import { persistStore, persistReducer } from "redux-persist";
+import storage from "redux-persist/lib/storage";
 import * as serviceWorker from './serviceWorker';
 
 import designReducer from "./reducers/designReducer";
 import eventReducer from "./reducers/eventReducer";
 import inviteReducer from "./reducers/inviteReducer";
 import userReducer from "./reducers/userReducer";
+import { PersistGate } from 'redux-persist/integration/react';
 
 const rootReducer = combineReducers({
   designInfo: designReducer,
@@ -21,15 +25,30 @@ const rootReducer = combineReducers({
   userInfo: userReducer
 })
 
+const persistConfig = {
+  key: 'root',
+  storage,
+  whiteList: ['designInfo', 'userInfo']
+}
+
+const persistedReducer = persistReducer(persistConfig, rootReducer)
+
+
 const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose
 
-const store = createStore(rootReducer, composeEnhancers(applyMiddleware(thunk)))
+let store = createStore(persistedReducer, composeEnhancers(applyMiddleware(thunk)))
+
+let persistor = persistStore(store)
 
 ReactDOM.render(
   <Provider store={store}>
+  <PersistGate loading={null} persistor={persistor}>
     <BrowserRouter>
-    <App />
-  </BrowserRouter>
+      <App />
+    </BrowserRouter>
+  </PersistGate>
+     
+    
   </Provider>, 
   document.getElementById('root'));
 

@@ -41,17 +41,17 @@ class DesignEditor extends Component {
   changeHandler = (event) => {
     console.log(event.target.value);
     this.setState({
-      [event.target.name]: event.target.value
+      [event.target.name]: event.target.value,
+      image: this.canvas.toDataURL().toString()
     })
   }
 
   submitHandler = (event) => {
     event.preventDefault()
-
     const token = localStorage.getItem("token")
+    this.props.creatingNewDesign(this.state, token)    
+    alert('Yay!')
 
-    console.log(this.state);
-    
   }
 
 

@@ -20,7 +20,7 @@ export const creatingNewDesign = (designInfo, token) => dispatch => {
   })
   .then(response => response.json())
   .then(design =>{
-    console.log(design);
+    dispatch(createDesign(design))
     
   })
 }

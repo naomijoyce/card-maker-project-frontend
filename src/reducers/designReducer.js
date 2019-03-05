@@ -2,7 +2,7 @@ const initialState = {
   designs: [],
   selectedDesign: {},
   selectedTool: "pencil",
-  selectedColor: "#000000"
+  selectedColor: "#7bdcb5"
 }
 
 const reducer = (state = initialState, action) => {
@@ -29,6 +29,13 @@ const reducer = (state = initialState, action) => {
       return{
         ...state,
         selectedColor: action.payload
+      }
+
+    case "CREATE_DESIGN":
+
+      return{
+        ...state,
+        designs: [...state.designs, action.payload]
       }
       
     default:

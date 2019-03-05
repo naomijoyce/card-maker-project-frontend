@@ -18,8 +18,8 @@ class App extends Component {
         <NavBar />
 
         <Switch>
-          <Route exact path="/" component={CardContainer}/>  
-          <Route path="/designs/:id" component={CardInfo}/>
+          <Route exact path="/" component={CardContainer}/>
+          <Route path="/designs/:id" component={CardInfo}/>  
           {
             localStorage.getItem("token") !== null ? 
             <React.Fragment>
@@ -36,5 +36,6 @@ class App extends Component {
     );
   }
 }
+
 
 export default App;

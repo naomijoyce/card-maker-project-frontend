@@ -1,5 +1,50 @@
-.icon{
+.canvas {
+  border-radius: 1px;
+  box-shadow: 0 0 0 1px rgba(0, 0, 0, .1);
+}
+
+#icon img {
   border-radius: 45%;
   width: 45px;
   height: 45px;
+}
+
+#icon1 {
+  background-image: url(../icons/pencil.png);
+  background-size: 100%;
+  border-radius: 15%;
+  width: 60px;
+  height: 60px;
+}
+
+#icon2 {
+  background-image: url(../icons/line.png);
+  background-size: 100%;
+  border-radius: 15%;
+  width: 60px;
+  height: 60px;
+}
+
+#icon3 {
+  background-image: url(../icons/circle.png);
+  background-size: 100%;
+  border-radius: 15%;
+  width: 60px;
+  height: 60px;
+}
+
+#icon4 {
+  background-image: url(../icons/rect.png);
+  background-size: 100%;
+  border-radius: 15%;
+  width: 60px;
+  height: 60px;
+}
+
+#icon5 {
+  background-image: url(../icons/transform.png);
+  background-size: 100%;
+  border-radius: 15%;
+  width: 60px;
+  height: 60px;
 }

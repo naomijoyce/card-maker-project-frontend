@@ -5,7 +5,7 @@ import { connect } from "react-redux";
 class CardInfo extends Component {
   
   render() {
-    const {selectedDesign } = this.props
+    const { selectedDesign } = this.props
    
     return (
       <div>
