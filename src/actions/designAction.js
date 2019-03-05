@@ -11,3 +11,17 @@ export const selectDesign = design => {
     payload: design
   }
 }
+
+export const selectTool = tool => {
+  return{
+    type: "SELECT_TOOL",
+    payload: tool
+  }
+}
+
+export const selectColor = color => {
+  return{
+    type: "SELECT_COLOR",
+    payload: color
+  }
+}

@@ -1,6 +1,8 @@
 const initialState = {
   designs: [],
-  selectedDesign: {}
+  selectedDesign: {},
+  selectedTool: "pencil",
+  selectedColor: ""
 }
 
 const reducer = (state = initialState, action) => {
@@ -16,7 +18,19 @@ const reducer = (state = initialState, action) => {
         ...state,
         selectedDesign: action.payload
       }
-  
+    
+    case "SELECT_TOOL":
+      return{
+        ...state,
+        selectedTool: action.payload
+      }
+    
+    case "SELECT_COLOR":
+      return{
+        ...state,
+        selectedColor: action.payload
+      }
+      
     default:
       return state
   }
