@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
-import { withRouter } from "react-router-dom";
+import { Link, withRouter } from "react-router-dom";
 import { connect } from "react-redux";
+import CustomizeCard from "../containers/CustomizeCard";
 
 class CardInfo extends Component {
   
@@ -16,8 +17,11 @@ class CardInfo extends Component {
           <i>Design by: {Object.values(selectedDesign.user.first_name)} {Object.values(selectedDesign.user.last_name)} </i>
         </p>
 
+        <Link to="/customize">
         <button>Customize Card</button>
-
+        </Link>
+        
+        
         <button onClick={this.props.history.goBack}>Back to All Designs</button>
       </div>
     );

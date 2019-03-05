@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { Route, Switch, Redirect } from "react-router-dom";
 import CardContainer from "./containers/CardContainer";
 import CardInfo from "./components/CardInfo";
+import CustomizeCard from "./containers/CustomizeCard";
 import DesignEditor from "./containers/DesignEditor";
 import DashboardContainer from "./containers/DashboardContainer";
 import UserAccount from "./containers/UserAccount";
@@ -23,6 +24,7 @@ class App extends Component {
           {
             localStorage.getItem("token") !== null ? 
             <React.Fragment>
+              <Route path="/customize" component={CustomizeCard}/>
               <Route path="/designeditor" component={DesignEditor}/>
               <Route path="/dashboard" component={DashboardContainer}/>
               <Route path="/account" component={UserAccount}/>

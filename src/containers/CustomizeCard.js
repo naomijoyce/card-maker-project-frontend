@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { connect } from 'react-redux';
 
 class CustomizeCard extends Component {
   render() {
@@ -10,4 +11,16 @@ class CustomizeCard extends Component {
   }
 }
 
-export default CustomizeCard;
+const mapStateToProps = state =>{
+  return{
+
+  }
+}
+
+const mapDispatchToProps = dispatch => {
+  return{
+    
+  }
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(CustomizeCard);
