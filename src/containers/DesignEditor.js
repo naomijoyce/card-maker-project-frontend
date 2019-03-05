@@ -56,8 +56,8 @@ class DesignEditor extends Component {
 
 
   render() {
-   console.log(this.props); 
-   const toRgba = (color) => {
+  //formats color to 'rgba(0,0,0,0)'
+   const toRgba = (color) => { 
      return `rgba(${color.r}, ${color.g}, ${color.b}, ${color.a})`
    } 
     
