@@ -28,7 +28,7 @@ class DesignEditor extends Component {
 
   colorChangeHandler = (color) => {
     console.log(color);
-    this.props.selectColor(color.hex)
+    this.props.selectColor(color)
   }
 
   selectOptionHandler = (event) => {
@@ -56,7 +56,10 @@ class DesignEditor extends Component {
 
 
   render() {
-   console.log(this.props);   
+   console.log(this.props); 
+   const toRgba = (color) => {
+     return `rgba(${color.r}, ${color.g}, ${color.b}, ${color.a})`
+   } 
     
     return (
       <div className="editor-container">
@@ -121,9 +124,9 @@ class DesignEditor extends Component {
 
         <div className="colors">
           <SketchPicker 
-          disableAlpha={true}
+          disableAlpha={false}
           color={this.props.selectedColor}
-          onChange={this.colorChangeHandler}/>
+          onChange={(color) => this.colorChangeHandler(toRgba(color.rgb))}/>
         </div>
 
       </div>
