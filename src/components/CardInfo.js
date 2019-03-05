@@ -17,9 +17,13 @@ class CardInfo extends Component {
           <i>Design by: {Object.values(selectedDesign.user.first_name)} {Object.values(selectedDesign.user.last_name)} </i>
         </p>
 
-        <Link to="/customize">
+        {
+          localStorage.getItem("token") !== null ? 
+          <Link to="/customize">
         <button>Customize Card</button>
-        </Link>
+        </Link> : null
+        }
+        
         
         
         <button onClick={this.props.history.goBack}>Back to All Designs</button>
