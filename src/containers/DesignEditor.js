@@ -5,15 +5,19 @@ import { SketchPicker } from 'react-color';
 import { connect } from "react-redux";
 import { selectTool, selectColor } from "../actions/designAction";
 import { getEvents } from "../thunks/eventThunk";
+import { creatingNewDesign } from "../thunks/designThunk";
 
 class DesignEditor extends Component {
   constructor(props){
     super(props)
-
+    
     this.props.getEvents()
     
     this.state = {
-      image: ""
+      image: "",
+      event_id: "",
+      title: "",
+      user_id: this.props.currentUser.id
     }
   }
   
@@ -27,14 +31,69 @@ class DesignEditor extends Component {
     this.props.selectColor(color.hex)
   }
 
+  selectOptionHandler = (event) => {
+    console.log(event.target.value);
+    this.setState({
+      event_id: event.target.value
+    })
+  } 
+
+  changeHandler = (event) => {
+    console.log(event.target.value);
+    this.setState({
+      [event.target.name]: event.target.value
+    })
+  }
+
+  submitHandler = (event) => {
+    event.preventDefault()
+
+    const token = localStorage.getItem("token")
+
+    console.log(this.state);
+    
+  }
+
 
   render() {
    console.log(this.props);   
     
     return (
       <div className="editor-container">
+
+        <div className="new-design-info">
+          <label>Type of Event</label>
+          <select
+            name="event_id"
+            value={this.state.event_id}
+            onChange={this.selectOptionHandler}
+            >
+
+            <option>Pick an Event</option>
+            {
+              this.props.events.map(event => 
+                <option key={event.id} value={event.id}>
+                {event.category}
+                </option>  
+              )
+            }
+          </select>
+
+          <form onSubmit={this.submitHandler}>
+            <label>Name your Design</label>
+            <input 
+              type="text"
+              name="title"
+              value={this.state.title}
+              onChange={this.changeHandler}
+              placeholder="title"/> 
+
+            <button>Create Design</button>
+          </form>
+        </div>
+        
         <SketchField 
-          ref={image => (this.image = image)}
+          ref={canvas => (this.canvas = canvas)}
           className="canvas"
           tool={this.props.selectedTool}
           lineColor={this.props.selectedColor}
@@ -61,14 +120,12 @@ class DesignEditor extends Component {
         </div>
 
         <div className="colors">
-          <SketchPicker color={this.props.selectedColor}
+          <SketchPicker 
+          disableAlpha={true}
+          color={this.props.selectedColor}
           onChange={this.colorChangeHandler}/>
         </div>
 
-        <div className="new-design-info">
-          
-        </div>
-        
       </div>
       
     )
@@ -78,7 +135,9 @@ class DesignEditor extends Component {
 const mapStateToProps = (state) =>{
   return{
     selectedTool: state.designInfo.selectedTool,
-    selectedColor: state.designInfo.selectedColor
+    selectedColor: state.designInfo.selectedColor,
+    events: state.eventInfo.events,
+    currentUser: state.userInfo.currentUser.user
 
   }
 }
@@ -87,7 +146,8 @@ const mapDispatchToProps = (dispatch) =>{
   return{
     selectTool: (tool) => dispatch(selectTool(tool)),
     selectColor: (color) => dispatch(selectColor(color)),
-    getEvents: () => dispatch(getEvents())
+    getEvents: () => dispatch(getEvents()),
+    creatingNewDesign: (designInfo, token) =>dispatch(creatingNewDesign(designInfo, token))
   }
 }
 

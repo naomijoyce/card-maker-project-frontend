@@ -25,3 +25,10 @@ export const selectColor = color => {
     payload: color
   }
 }
+
+export const createDesign = newDesign => {
+  return{
+    type: "CREATE_DESIGN",
+    payload: newDesign
+  }
+}

@@ -2,7 +2,7 @@ const initialState = {
   designs: [],
   selectedDesign: {},
   selectedTool: "pencil",
-  selectedColor: ""
+  selectedColor: "#000000"
 }
 
 const reducer = (state = initialState, action) => {
