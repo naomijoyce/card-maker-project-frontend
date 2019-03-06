@@ -1,6 +1,7 @@
 const initialState = {
   currentUser: {},
-  loggedIn: false
+  loggedIn: false,
+  currentUserInfo: {}
 }
 
 const reducer = (state = initialState, action) => {
@@ -32,6 +33,12 @@ const reducer = (state = initialState, action) => {
         ...state,
         currentUser: action.payload,
         loggedIn: true
+      }
+
+    case "GET_USER":
+      return{
+        ...state,
+        currentUserInfo: action.payload
       }
 
     default:

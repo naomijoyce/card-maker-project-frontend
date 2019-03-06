@@ -2,40 +2,55 @@ import React, { Component } from 'react';
 import UserDesigns from "../components/UserDesigns";
 import UserInvites from "../components/UserInvites";
 import { connect } from "react-redux";
+import { getUserInfo } from "../thunks/userThunk";
 
 class DashboardContainer extends Component {
+  constructor(props){
+    super(props)
+
+    const token = localStorage.getItem("token")
+    this.props.getUserInfo(this.props.currentUser.id, token)
+    
+  }
   render() {
-    console.log(this.props.designs);
+    console.log(this.props);
 
-    const userDesigns = this.props.designs.map(design => {
-      return <UserDesigns key={design.id} design={design}/>
-    })
+    // const userDesigns = this.props.designs.map(design => {
+    //   return <UserDesigns key={design.id} design={design}/>
+    // })
 
-    const userInvites = this.props.invites.map(invite =>{
-      return <UserInvites key={invite.id} invite={invite}/>
-    })
+    // const userInvites = this.props.invites.map(invite =>{
+    //   return <UserInvites key={invite.id} invite={invite}/>
+    // })
     
     
     return (
       <div className="dashboard-container">
-      <h2>Welcome to your dashboard {this.props.currentUser.first_name}!</h2>
+      <h2>Welcome to your dashboard!</h2>
 
       <h3>My Designs</h3>
-      {userDesigns}
+      {/* {userDesigns} */}
 
       <h3>My Invites</h3>
-      {userInvites}
+      {/* {userInvites} */}
       </div>
     );
   }
 }
 
-const mapStateToProps = state => {  
+const mapStateToProps = state => {
+  console.log(state);
+  
   return{
     currentUser: state.userInfo.currentUser.user,
-    designs: state.userInfo.currentUser.user.designs,
-    invites: state.userInfo.currentUser.user.invites
+    currentUserInfo: state.userInfo.currentUserInfo
   }
 }
 
-export default connect(mapStateToProps)(DashboardContainer);
+const mapDispatchtoProps = dispatch =>{
+  return{
+    getUserInfo: (id,token) => dispatch(getUserInfo(id, token))
+  }
+}
+
+export default connect(mapStateToProps, mapDispatchtoProps)(DashboardContainer);

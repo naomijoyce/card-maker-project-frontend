@@ -1,4 +1,4 @@
-import { loginUser, createUser, updateUser } from "../actions/userAction";
+import { loginUser, createUser, updateUser, getUser } from "../actions/userAction";
 
 export const loggingInUser = loginCredentials => dispatch => {
   return fetch("http://localhost:3000/api/v1/login", {
@@ -56,4 +56,17 @@ export const updateUserInfo = (id, newUserInfo, token) => dispatch =>{
 
   })
 
+}
+
+export const getUserInfo = (id,token) => dispatch => {
+  return fetch(`http://localhost:3000/api/v1/users/${id}`, {
+    headers: {
+      'Content-Type': 'application/JSON',
+      Authorization: `Bearer ${token}`
+    }
+  })
+  .then(response => response.json())
+  .then(user =>{
+    dispatch(getUser(user))
+  })
 }

@@ -22,6 +22,14 @@ class UpdateForm extends Component {
     
   }
 
+  // componentDidUpdate(prevState, prevProps){
+  //   if(prevProps.id !== this.props.currentUser.id){
+  //     this.setState({
+  //       ...this.props.currentUser
+  //     })
+  //   }
+  // }
+
   changeHandler = (event) => {
     this.setState({
       [event.target.name]: event.target.value
