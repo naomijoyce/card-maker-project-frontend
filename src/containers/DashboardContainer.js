@@ -15,13 +15,13 @@ class DashboardContainer extends Component {
   render() {
     console.log(this.props);
 
-    // const userDesigns = this.props.designs.map(design => {
-    //   return <UserDesigns key={design.id} design={design}/>
-    // })
+    const userDesigns = this.props.currentUserInfo.designs.map(design => {
+      return <UserDesigns key={design.id} design={design}/>
+    })
 
-    // const userInvites = this.props.invites.map(invite =>{
-    //   return <UserInvites key={invite.id} invite={invite}/>
-    // })
+    const userInvites = this.props.currentUserInfo.invites.map(invite =>{
+      return <UserInvites key={invite.id} invite={invite}/>
+    })
     
     
     return (
@@ -29,10 +29,10 @@ class DashboardContainer extends Component {
       <h2>Welcome to your dashboard!</h2>
 
       <h3>My Designs</h3>
-      {/* {userDesigns} */}
+      {userDesigns}
 
       <h3>My Invites</h3>
-      {/* {userInvites} */}
+      {userInvites}
       </div>
     );
   }
