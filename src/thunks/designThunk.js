@@ -1,4 +1,4 @@
-import { loadDesigns, createDesign } from "../actions/designAction";
+import { loadDesigns, createDesign, getDesign } from "../actions/designAction";
 
 export const getDesigns = () => dispatch => {
   return fetch("http://localhost:3000/api/v1/designs")
@@ -22,5 +22,13 @@ export const creatingNewDesign = (designInfo, token) => dispatch => {
   .then(design =>{
     dispatch(createDesign(design))
     
+  })
+}
+
+export const getDesignInfo = (id) => dispatch => {
+  return fetch(`http://localhost:3000/api/v1/designs/${id}`)
+  .then(response => response.json())
+  .then(design => {
+    dispatch(getDesign(design))
   })
 }

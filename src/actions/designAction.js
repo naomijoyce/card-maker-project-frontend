@@ -32,3 +32,10 @@ export const createDesign = newDesign => {
     payload: newDesign
   }
 }
+
+export const getDesign = designInfo => {
+  return{
+    type: "GET_DESIGN",
+    payload: designInfo
+  }
+}
