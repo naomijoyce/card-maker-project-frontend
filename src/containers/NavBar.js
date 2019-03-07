@@ -1,35 +1,51 @@
-import React from 'react';
-import { Link } from "react-router-dom";
+import React, { Component } from 'react';
+import { NavLink } from "react-router-dom";
 import { connect } from "react-redux";
+import { bubble as Menu } from "react-burger-menu";
 import { logoutUser } from "../actions/userAction";
 
-const NavBar = ({loggedIn, logoutUser}) => {    
+class NavBar extends Component{    
+  render(){
   return (
     <div className="nav-bar">
-      <ul>
-        <Link to="/"><li>Home</li></Link>
+      <Menu>
+     
+        <NavLink className="bm-item-list" to="/"><a href="/">Home</a></NavLink>
 
         {
-          localStorage.getItem("token") !== null && loggedIn? 
+          localStorage.getItem("token") !== null && this.props.loggedIn? 
           (
-            <div>
-              <Link to="/designeditor"><li>Create a Design</li></Link>
-              <Link to="/dashboard"><li>Dashboard</li></Link> 
-              <Link to="/account"><li>Account Settings</li></Link>
-              <Link 
+            <React.Fragment>
+              <NavLink className="bm-item-list" to="/designeditor">
+                <a href="/designeditor">Create a Design</a> 
+              </NavLink><br/>
+
+              <NavLink className="bm-item-list" to="/dashboard">
+                <a href="dashboard">Dashboard</a>
+              </NavLink> <br/>
+
+              <NavLink className="bm-item-list" to="/account">
+                <a href="account">Account Settings</a>
+              </NavLink><br/>
+
+              <NavLink 
+                className="bm-item-list"
                 to="/" 
-                onClick={() => logoutUser()}>
-                <li>Log Out</li>
-              </Link>
-            </div>
+                onClick={() => this.props.logoutUser()}>
+                <a href="/logginout">Log Out</a>
+              </NavLink> <br/>
+            </React.Fragment>
           ) :
-          <Link to="/loginorsignup"><li>Log In/Sign Up</li></Link>
+          <NavLink className="bm-item-list" to="/loginorsignup">
+            <a href="/loginout">Log In/Sign Up</a>
+          </NavLink>
         }
-        
-      </ul>
+     
+      </Menu>
     </div>
   );
-};
+  };
+}
 
 const mapStateToProps = (state) => {
   return{

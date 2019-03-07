@@ -3,6 +3,7 @@ import { connect } from "react-redux";
 import DropdownDate from 'react-dropdown-date';
 import { updateUserInfo } from "../thunks/userThunk";
 
+
 class UpdateForm extends Component {
 
   state={

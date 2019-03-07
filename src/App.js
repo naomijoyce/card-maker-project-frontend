@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { Route, Switch, Redirect } from "react-router-dom";
+import HomePage from "./components/HomePage";
 import CardContainer from "./containers/CardContainer";
 import CardInfo from "./components/CardInfo";
 import CustomizeCard from "./containers/CustomizeCard";
@@ -9,6 +10,7 @@ import UserAccount from "./containers/UserAccount";
 import SignUpInContainer from "./containers/SignUpInContainer";
 import NavBar from "./containers/NavBar";
 import './css/App.css';
+import 'semantic-ui-css/semantic.min.css'
 
 class App extends Component {
 
@@ -16,11 +18,14 @@ class App extends Component {
     
     return (
       <div className="App">
-        <NavBar />
-
+     
+         <NavBar />
+      
+       
         <Switch>
-          <Route exact path="/" component={CardContainer}/>
-          <Route path="/designs/:id" component={CardInfo}/>  
+          <Route exact path="/" component={HomePage}/>
+          <Route exact path="/designs" component={CardContainer}/>
+          <Route exact path="/designs/:id" component={CardInfo}/>  
           {
             localStorage.getItem("token") !== null ? 
             <React.Fragment>

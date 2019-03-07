@@ -6,7 +6,7 @@ const UserInvites = ({invite}) => {
   
   return (
     <div className="user-invites">
-      <img src={invite.design.image} alt="invites design"/>
+      <img name="info-img"src={invite.design.image} alt="invites design"/>
     </div>
   );
 };

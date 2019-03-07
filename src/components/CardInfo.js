@@ -9,7 +9,7 @@ class CardInfo extends Component {
    
     return (
       <div>
-        <img src={selectedDesign.image} alt="some random card design here" />
+        <img name="info-img" src={selectedDesign.image} alt="some random card design here" />
         <h3>{selectedDesign.title}</h3>
         <p>
           Type of Event: {Object.values(selectedDesign.event.category)} <br/>

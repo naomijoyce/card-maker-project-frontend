@@ -1,6 +1,180 @@
+.App {
+  display: grid;
+  grid-template-columns: repeat(3, 4fr);
+  grid-template-rows: 100px auto;
+}
+
+.nav-bar{
+  display: flex;
+  grid-column: span 3;
+}
+
+.home{
+  display: grid;
+  grid-column-start: 2;
+  justify-content: center;
+}
+
+.homehome{
+  display: grid;
+  grid-column: span 3;
+  
+}
+
+.cards-container {
+  display: grid;
+  grid-template-columns: repeat(3,4fr)
+}
+
 img {
   width: 300px;
   height: auto;
   border-radius: 1px;
   box-shadow: 0 0 0 1px rgba(0, 0, 0, .1);
+}
+
+input {
+  margin: 0px 0px 20px;
+  border-radius: 0px;
+  overflow: hidden;
+  resize: none;
+  width: 200px;
+  padding: 7px 0px 5px;
+  color: rgb(80, 80, 80);
+  border-width: 0px 0px 1px;
+  border-style: solid;
+  border-color: rgb(255, 255, 255) rgb(255, 255, 255) rgb(204, 204, 204);
+  border-image: initial;
+  background: none;
+  display: block;
+  box-sizing: border-box;
+  min-height: 0px;
+  transition: border-bottom 0.2s ease-out 0s;
+  height: 37px;
+}
+
+select {
+    border-bottom: 1px solid rgb(204, 204, 204);
+    box-sizing: border-box;
+    cursor: pointer;
+    padding: 7px 0px 4px;
+    position: relative;
+    transition: border-bottom 0.2s ease-out 0s;
+    user-select: none;
+    touch-action: manipulation;
+    -webkit-tap-highlight-color: transparent;
+
+}
+
+button:not([name="tools"]) {
+  background: rgb(83, 199, 242);
+  border-width: 1px 0px;
+  border-top-style: solid;
+  border-right-style: initial;
+  border-bottom-style: solid;
+  border-left-style: initial;
+  border-top-color: rgb(83, 199, 242);
+  border-right-color: initial;
+  border-bottom-color: rgb(57, 149, 183);
+  border-left-color: initial;
+  border-image: initial;
+  border-radius: 2px;
+  box-sizing: border-box;
+  color: rgb(250, 250, 250);
+  cursor: pointer;
+  display: inline-block;
+  font-size: 17px;
+  line-height: 26px;
+  padding: 8px 14px 6px;
+  text-align: center;
+  text-decoration: none;
+  vertical-align: bottom;
+  transition: border-top 0.1s ease-out 0s,
+  border-bottom 0.1s 0s,
+  color 0.1s 0s;
+  user-select: none;
+  touch-action: manipulation;
+  -webkit-tap-highlight-color: transparent;
+  margin-right: 15px;
+  border-radius: 100px;
+}
+
+.card-designs{
+  margin-bottom: 20px;
+  margin-left: 20px;
+  margin-right: 20px;
+  padding: 40px;
+  border-radius: 2px;
+  background: rgb(255, 255, 255);
+  box-shadow: rgba(0, 0, 0, 0.2) 0px 1px 1px;
+  box-sizing: border-box;
+  border-top: 1px solid rgb(242, 242, 242);
+  width: 400px;
+}
+
+/* Position and sizing of burger button */
+.bm-burger-button {
+  position: fixed;
+  width: 36px;
+  height: 30px;
+  left: 36px;
+  top: 36px;
+}
+
+/* Color/shape of burger icon bars */
+.bm-burger-bars {
+  background: #5E6D7D;
+}
+
+/* Color/shape of burger icon bars on hover*/
+.bm-burger-bars-hover {
+  background: #a90000;
+}
+
+/* Position and sizing of clickable cross button */
+.bm-cross-button {
+  height: 24px;
+  width: 24px;
+}
+
+/* Color/shape of close button cross */
+.bm-cross {
+  background: #bdc3c7;
+}
+
+/*
+Sidebar wrapper styles
+Note: Beware of modifying this element as it can break the animations - you should not need to touch it in most cases
+*/
+.bm-menu-wrap {
+  position: fixed;
+  height: 100%;
+}
+
+/* General sidebar styles */
+.bm-menu {
+  background: #E8AA99;
+  padding: 2.5em 1.5em 0;
+  font-size: 1.15em;
+}
+
+/* Morph shape necessary with bubble or elastic */
+.bm-morph-shape {
+  fill: #E8AA99;
+}
+
+/* Wrapper for item list */
+.bm-item-list {
+  color: #b8b7ad;
+  padding: 0.8em;
+}
+
+/* Individual item */
+.bm-item {
+  display: inline-block;
+}
+
+/* Styling of overlay */
+.bm-overlay {
+  background: rgba(0, 0, 0, 0.3);
 }

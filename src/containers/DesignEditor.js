@@ -106,19 +106,19 @@ class DesignEditor extends Component {
           
         <div className="sketch-tools">
           
-          <button id="icon1" value="pencil" onClick={this.clickHandler}>
+          <button name="tools" id="icon1" value="pencil" onClick={this.clickHandler}>
           </button>
 
-          <button id="icon2" value="line" onClick={this.clickHandler}>
+          <button name="tools" id="icon2" value="line" onClick={this.clickHandler}>
           </button>
 
-          <button id="icon3" value="circle" onClick={this.clickHandler}>
+          <button name="tools" id="icon3" value="circle" onClick={this.clickHandler}>
           </button>
 
-          <button id="icon4" value="rectangle" onClick={this.clickHandler}>
+          <button name="tools" id="icon4" value="rectangle" onClick={this.clickHandler}>
           </button>
 
-          <button id="icon5" value="select" onClick={this.clickHandler}>
+          <button name="tools" id="icon5" value="select" onClick={this.clickHandler}>
           </button>
         </div>
 
