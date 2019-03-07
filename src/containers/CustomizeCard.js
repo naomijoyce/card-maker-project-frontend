@@ -3,15 +3,11 @@ import DatePicker from 'react-date-picker';
 import TimePicker from 'react-time-picker';
 import { connect } from 'react-redux';
 import { getDesignInfo } from "../thunks/designThunk";
-
+import { createInvite } from "../thunks/inviteThunk";
 
 class CustomizeCard extends Component {
   constructor(props) {
     super(props)
-
-    console.log(props);
-    
-    this.props.getDesignInfo(this.props.selectedDesign.id)
 
     this.state = {
       name: "",
@@ -23,10 +19,11 @@ class CustomizeCard extends Component {
       address: "",
       message: "",
       user_id: this.props.currentUser.id,
-      design_id: this.props.selectedDesignInfo.id,
-      event_id: this.props.selectedDesignInfo.event.category
+      design_id: this.props.selectedDesign.id,
+      event_id: this.props.selectedDesign.event.id
     }
   }
+
 
   changeHandler = (event) => {
     this.setState({
@@ -40,6 +37,13 @@ class CustomizeCard extends Component {
 
   timeChangeHandler = (time) => {
     this.setState({time})
+  }
+
+  submitHandler = (event) => {
+    event.preventDefault()
+    const token = localStorage.getItem("token")
+
+    this.props.createInvite(this.state, token)
   }
 
   render() {
@@ -120,14 +124,13 @@ class CustomizeCard extends Component {
 const mapStateToProps = state =>{
   return{
     selectedDesign: state.designInfo.selectedDesign,
-    currentUser: state.userInfo.currentUser.user,
-    selectedDesignInfo: state.designInfo.selectedDesignInfo
+    currentUser: state.userInfo.currentUser.user
   }
 }
 
 const mapDispatchToProps = dispatch => {
   return{
-    getDesignInfo: (id) => dispatch(getDesignInfo(id))
+    createInvite: (inviteInfo, token) => dispatch(createInvite(inviteInfo, token))
   }
 }
 

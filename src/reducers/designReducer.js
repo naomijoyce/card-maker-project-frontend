@@ -37,12 +37,6 @@ const reducer = (state = initialState, action) => {
         ...state,
         designs: [...state.designs, action.payload]
       }
-
-    case "GET_DESIGN":
-      return{
-        ...state,
-        selectedDesignInfo: action.payload
-      }
       
     default:
       return state

@@ -12,7 +12,7 @@ class CardInfo extends Component {
         <img src={selectedDesign.image} alt="some random card design here" />
         <h3>{selectedDesign.title}</h3>
         <p>
-          Type of Event: {Object.values(selectedDesign.event)} <br/>
+          Type of Event: {Object.values(selectedDesign.event.category)} <br/>
           <i>Design by: {Object.values(selectedDesign.user.first_name)} {Object.values(selectedDesign.user.last_name)} </i>
         </p>
 
