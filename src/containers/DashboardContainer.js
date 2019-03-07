@@ -29,10 +29,16 @@ class DashboardContainer extends Component {
       <h2>Welcome to your dashboard!</h2>
 
       <h3>My Designs</h3>
-      {userDesigns}
+        <div className="dashboard-designs">
+        {userDesigns}
+        </div>
+      
 
       <h3>My Invites</h3>
-      {userInvites}
+        <div className="dashboard-invites">
+          {userInvites}
+        </div>
+      
       </div>
     );
   }

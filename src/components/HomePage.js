@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { Link } from "react-router-dom";
 import { Cat } from "react-kawaii";
+import { connect } from "react-redux";
 
 class HomePage extends Component {
   render() {
@@ -13,7 +14,7 @@ class HomePage extends Component {
 
 
         {
-          localStorage.getItem("token") !== null ?
+          localStorage.getItem("token") !== null && this.props.loggedIn ?
           <Link to="/designeditor">
             <button className="design">Create Design</button>
           </Link>:null
@@ -21,7 +22,7 @@ class HomePage extends Component {
         
 
         {
-          localStorage.getItem("token") !== null ? 
+          localStorage.getItem("token") !== null && this.props.loggedIn ? 
           <Link to="/dashboard">
             <button>View Dashboard</button>
           </Link>
@@ -47,4 +48,10 @@ class HomePage extends Component {
   }
 }
 
-export default HomePage;
+const mapStateToProps = state => {
+  return{
+    loggedIn: state.userInfo.loggedIn
+  }
+}
+
+export default connect(mapStateToProps)(HomePage);

@@ -3,6 +3,7 @@ import "../css/DesignEditor.css";
 import { SketchField, Tools } from 'react-sketch';
 import { SketchPicker } from 'react-color';
 import { connect } from "react-redux";
+import { withRouter } from "react-router-dom";
 import { selectTool, selectColor } from "../actions/designAction";
 import { getEvents } from "../thunks/eventThunk";
 import { creatingNewDesign } from "../thunks/designThunk";
@@ -50,7 +51,8 @@ class DesignEditor extends Component {
     event.preventDefault()
     const token = localStorage.getItem("token")
     this.props.creatingNewDesign(this.state, token)    
-    alert('Yay!')
+    alert('Yay! You created a design!')
+    this.props.history.push("/account")
 
   }
 
@@ -154,4 +156,4 @@ const mapDispatchToProps = (dispatch) =>{
   }
 }
 
-export default connect(mapStateToProps, mapDispatchToProps)(DesignEditor);
+export default withRouter(connect(mapStateToProps, mapDispatchToProps)(DesignEditor));

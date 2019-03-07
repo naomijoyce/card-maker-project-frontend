@@ -13,6 +13,14 @@ class NavBar extends Component{
         <NavLink className="bm-item-list" to="/"><a href="/">Home</a></NavLink>
 
         {
+          localStorage.getItem("token") !== null && this.props.loggedIn ?
+          <NavLink className="bm-item-list" to="/designs">
+            <a href="/designs">Browse Designs</a>
+          </NavLink>:null
+        }
+        
+
+        {
           localStorage.getItem("token") !== null && this.props.loggedIn? 
           (
             <React.Fragment>

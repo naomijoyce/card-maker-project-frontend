@@ -23,7 +23,55 @@
 
 .cards-container {
   display: grid;
-  grid-template-columns: repeat(3,4fr)
+  grid-template-columns: repeat(3,4fr);
+}
+
+.sign-up-in-container {
+  display: grid;
+  grid-column: span 3;
+}
+
+.login{
+  display: grid;
+  /* margin-left: 40%; */
+
+  margin-bottom: 20px;
+  margin-left: 20px;
+  margin-right: 20px;
+  padding: 40px;
+  border-radius: 2px;
+  background: rgb(255, 255, 255);
+  box-shadow: rgba(0, 0, 0, 0.4) 0px 1px 1px;
+  box-sizing: border-box;
+  border-top: 1px solid rgb(242, 242, 242);
+  width: 400px;
+}
+
+.signup{
+  display: grid;
+  grid-column-start: 2;
+  /* margin-left: 20%; */
+  margin-bottom: 20px;
+  margin-left: 20px;
+  margin-right: 20px;
+  padding: 40px;
+  border-radius: 2px;
+  background: rgb(255, 255, 255);
+  box-shadow: rgba(0, 0, 0, 0.4) 0px 1px 1px;
+  box-sizing: border-box;
+  border-top: 1px solid rgb(242, 242, 242);
+  width: 400px;
+}
+
+
+.dashboard-designs{
+  display: grid;
+  grid-template-columns: repeat(3,4fr);
+}
+
+.dashboard-invites {
+  display: grid;
+  grid-template-columns: repeat(3,4fr);
 }
 
 img {
@@ -100,6 +148,32 @@ button:not([name="tools"]) {
 }
 
 .card-designs{
+  margin-bottom: 20px;
+  margin-left: 20px;
+  margin-right: 20px;
+  padding: 40px;
+  border-radius: 2px;
+  background: rgb(255, 255, 255);
+  box-shadow: rgba(0, 0, 0, 0.2) 0px 1px 1px;
+  box-sizing: border-box;
+  border-top: 1px solid rgb(242, 242, 242);
+  width: 400px;
+}
+
+.user-design-container{
+  margin-bottom: 20px;
+  margin-left: 20px;
+  margin-right: 20px;
+  padding: 40px;
+  border-radius: 2px;
+  background: rgb(255, 255, 255);
+  box-shadow: rgba(0, 0, 0, 0.2) 0px 1px 1px;
+  box-sizing: border-box;
+  border-top: 1px solid rgb(242, 242, 242);
+  width: 400px;
+}
+
+.user-invites {
   margin-bottom: 20px;
   margin-left: 20px;
   margin-right: 20px;
