@@ -2,7 +2,6 @@ import React, { Component } from 'react';
 import DatePicker from 'react-date-picker';
 import TimePicker from 'react-time-picker';
 import { connect } from 'react-redux';
-import { getDesignInfo } from "../thunks/designThunk";
 import { createInvite } from "../thunks/inviteThunk";
 
 class CustomizeCard extends Component {
@@ -53,7 +52,7 @@ class CustomizeCard extends Component {
       <div className="customize-card-container">
 
         <div className="customize-card-form">
-          <img src={this.props.selectedDesignInfo.image} alt="some design"/>
+          <img src={this.props.selectedDesign.image} alt="some design"/>
           <form className="invite-form" onSubmit={this.submitHandler}>
             <label>Name of the Event</label>
             <input 

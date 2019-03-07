@@ -1,3 +1,5 @@
+import { newInvite } from "../actions/inviteAction";
+
 export const createInvite = (inviteInfo, token) => dispatch => {
   return fetch('http://localhost:3000/api/v1/invites', {
     method: "POST",
@@ -13,6 +15,6 @@ export const createInvite = (inviteInfo, token) => dispatch => {
   .then(response => response.json())
   .then(invite => {
     console.log(invite);
-    
+    dispatch(newInvite(invite))
   })
 }
