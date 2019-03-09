@@ -74,14 +74,14 @@ class CustomizeCard extends Component {
             value={this.state.date}
             minDate={new Date()}
             clearIcon= {null}
-            onChange={this.dateChangeHandler}/>
+            onChange={this.dateChangeHandler}/> <br/>
 
            <label>Time of the Event</label>
            <TimePicker 
             name="time"
             value={this.state.time}
             clearIcon= {null}
-            onChange={this.timeChangeHandler}/>
+            onChange={this.timeChangeHandler}/> <br/>
         
 
             <label>Phone Number</label>
@@ -105,7 +105,7 @@ class CustomizeCard extends Component {
               value={this.state.address}
               onChange={this.changeHandler}/>
 
-            <label>Message</label>
+            <label>Message</label> <br/>
             <textarea
               name="message" 
               value={this.state.message}

@@ -14,14 +14,16 @@ class DashboardContainer extends Component {
   }
   render() {
     console.log(this.props);
+    console.log(this.props.currentUserInfo);
+    
 
-    const userDesigns = this.props.currentUserInfo.designs.map(design => {
+    const userDesigns = this.props.currentUser.designs.map(design => {
       return <UserDesigns key={design.id} design={design}/>
-    })
+    }) || []
 
-    const userInvites = this.props.currentUserInfo.invites.map(invite =>{
+    const userInvites = this.props.currentUser.invites.map(invite =>{
       return <UserInvites key={invite.id} invite={invite}/>
-    })
+    }) || []
     
     
     return (

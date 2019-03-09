@@ -52,7 +52,7 @@ class DesignEditor extends Component {
     const token = localStorage.getItem("token")
     this.props.creatingNewDesign(this.state, token)    
     alert('Yay! You created a design!')
-    this.props.history.push("/account")
+    this.props.history.push("/")
 
   }
 
@@ -66,45 +66,16 @@ class DesignEditor extends Component {
     return (
       <div className="editor-container">
 
-        <div className="new-design-info">
-          <label>Type of Event</label>
-          <select
-            name="event_id"
-            value={this.state.event_id}
-            onChange={this.selectOptionHandler}
-            >
-
-            <option>Pick an Event</option>
-            {
-              this.props.events.map(event => 
-                <option key={event.id} value={event.id}>
-                {event.category}
-                </option>  
-              )
-            }
-          </select>
-
-          <form onSubmit={this.submitHandler}>
-            <label>Name your Design</label>
-            <input 
-              type="text"
-              name="title"
-              value={this.state.title}
-              onChange={this.changeHandler}
-              placeholder="title"/> 
-
-            <button>Create Design</button>
-          </form>
+        <div className="canvas-area">
+          <SketchField 
+            ref={canvas => (this.canvas = canvas)}
+            className="canvas"
+            tool={this.props.selectedTool}
+            lineColor={this.props.selectedColor}
+            fillColor={this.props.selectedColor}
+            width = "700px"
+            height = "500px" />
         </div>
-        
-        <SketchField 
-          ref={canvas => (this.canvas = canvas)}
-          className="canvas"
-          tool={this.props.selectedTool}
-          lineColor={this.props.selectedColor}
-          fillColor={this.props.selectedColor}
-          width = "700px"
-          height = "500px" />
           
         <div className="sketch-tools">
           
@@ -112,7 +83,7 @@ class DesignEditor extends Component {
           </button>
 
           <button name="tools" id="icon2" value="line" onClick={this.clickHandler}>
-          </button>
+          </button> 
 
           <button name="tools" id="icon3" value="circle" onClick={this.clickHandler}>
           </button>
@@ -129,6 +100,46 @@ class DesignEditor extends Component {
           disableAlpha={false}
           color={this.props.selectedColor}
           onChange={(color) => this.colorChangeHandler(toRgba(color.rgb))}/>
+        </div>
+
+        <div className="new-design-info">
+          <strong>
+            <label>Type of Event</label>
+            </strong> <br/>
+          <select
+            name="event_id"
+            value={this.state.event_id}
+            onChange={this.selectOptionHandler}
+            > <br/>
+            <strong>
+
+              <option>Pick an Event</option>
+            </strong>
+            
+            {
+              this.props.events.map(event => 
+                <option key={event.id} value={event.id}>
+                {event.category}
+                </option>  
+              )
+            }
+          </select><br/>
+
+          <form 
+            className="design-add-form"
+            onSubmit={this.submitHandler}>
+            <strong>
+              <label>Name your Design</label>
+              </strong>
+            <input 
+              type="text"
+              name="title"
+              value={this.state.title}
+              onChange={this.changeHandler}
+              placeholder="title"/> <br/>
+
+            <button>Create Design</button>
+          </form>
         </div>
 
       </div>

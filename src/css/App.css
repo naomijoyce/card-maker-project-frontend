@@ -63,6 +63,59 @@
   width: 400px;
 }
 
+.update-form-container{
+  margin-bottom: 20px;
+  margin-left: 20px;
+  margin-right: 20px;
+  padding: 40px;
+  border-radius: 2px;
+  background: rgb(255, 255, 255);
+  box-shadow: rgba(0, 0, 0, 0.4) 0px 1px 1px;
+  box-sizing: border-box;
+  border-top: 1px solid rgb(242, 242, 242);
+  width: 400px;
+}
+
+.editor-container{
+  display: grid;
+  grid-column: span 3;
+}
+
+.sketch-tool{
+  grid-column-start: 2;
+}
+
+.colors{
+  grid-column-start: 3;
+}
+
+.canvas-area{
+  grid-column-start: 1;
+  padding-right: 40px;
+  padding-left: 40px;
+  padding-bottom: 40px;
+}
+
+.new-design-info{
+  grid-column-start: 1;
+  padding-left: 40px;
+}
+
+
+.new-design-info input{
+  padding-bottom: 10px;
+}
+
+.customize-card-container{
+  display: grid;
+  grid-template-columns: repeat(3,4fr);
+  padding-left: 40px;
+}
+
+.invite-form{
+  grid-column-start: 2;
+}
+
 
 .dashboard-designs{
   display: grid;
@@ -72,6 +125,37 @@
 .dashboard-invites {
   display: grid;
   grid-template-columns: repeat(3,4fr);
+}
+
+.card-info{
+  display: grid;
+  grid-column: span 3;
+}
+
+.design-info{
+  margin-bottom: 20px;
+  margin-left: 20px;
+  margin-right: 20px;
+  padding: 40px;
+  border-radius: 2px;
+  background: rgb(255, 255, 255);
+  box-shadow: rgba(0, 0, 0, 0.2) 0px 1px 1px;
+  box-sizing: border-box;
+  border-top: 1px solid rgb(242, 242, 242);
+  width: 400px;
+  grid-column-start: 2;
+}
+
+.card-info img{
+  margin: 20px 20px 20px;
+  padding: 40px;
+  width: 500px;
+  grid-column-start: 1;
+}
+
+.buttons{
+  grid-column-start: 2;
+  margin-left: 7%;
 }
 
 img {

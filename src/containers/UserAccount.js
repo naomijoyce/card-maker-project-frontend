@@ -8,7 +8,7 @@ class UserAccount extends Component {
     const currentUser = this.props.currentUser || {}
     
     return (
-      <div>
+      <div className="user-account-container">
         <h2>Hello, {currentUser.first_name}!</h2>
         <UpdateForm />
       </div>
